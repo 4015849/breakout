@@ -12,11 +12,16 @@ public class ball : MonoBehaviour
     int lives = 5;
     public TextMeshProUGUI scoreTxt;
     public GameObject[] livesImage;
+    public GameObject gameOver;
+    public GameObject youWin;
+    int brickCount;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        brickCount = FindObjectOfType<LevelGenerator>().transform.childCount;
+        rb.velocity = Vector2.down * 10f;
     }
 
     // Update is called once per frame
@@ -31,7 +36,7 @@ public class ball : MonoBehaviour
             else
             {
                 transform.position = Vector3.down;
-                rb.velocity = Vector3.zero;
+                rb.velocity = Vector2.down * 10f;
                 lives--;
                 livesImage[lives].SetActive(false);
             }
@@ -51,11 +56,19 @@ public class ball : MonoBehaviour
             Destroy(collision.gameObject);
             score += 10;
             scoreTxt.text = score.ToString("00000");
+            brickCount--;
+            if (brickCount <= 0)
+            {
+                youWin.SetActive(true);
+                Time.timeScale = 0;
+            }
         }
     }
 
     void GameOver()
     {
-        Debug.Log("Game Over");
+        gameOver.SetActive(true);
+        Time.timeScale = 0;
+        Destroy(gameObject);
     }
 }
