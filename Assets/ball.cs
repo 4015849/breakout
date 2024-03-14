@@ -15,6 +15,8 @@ public class ball : MonoBehaviour
     public GameObject gameOver;
     public GameObject youWin;
     int brickCount;
+    public GameObject paddle;
+    private AudioSource bonk;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +24,7 @@ public class ball : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         brickCount = FindObjectOfType<LevelGenerator>().transform.childCount;
         rb.velocity = Vector2.down * 10f;
+        bonk = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -36,9 +39,11 @@ public class ball : MonoBehaviour
             else
             {
                 transform.position = Vector3.down;
-                rb.velocity = Vector2.down * 10f;
+                rb.velocity = Vector2.zero;
                 lives--;
                 livesImage[lives].SetActive(false);
+                paddle.transform.position = new Vector3(0, (float)-4.5, 0);
+                StartCoroutine(ballWait());
             }
 
         }
@@ -53,6 +58,7 @@ public class ball : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Brick"))
         {
+            bonk.Play();
             Destroy(collision.gameObject);
             score += 10;
             scoreTxt.text = score.ToString("00000");
@@ -70,5 +76,11 @@ public class ball : MonoBehaviour
         gameOver.SetActive(true);
         Time.timeScale = 0;
         Destroy(gameObject);
+    }
+
+    IEnumerator ballWait()
+    {
+        yield return new WaitForSeconds(1);
+        rb.velocity = Vector2.down * 10f;
     }
 }

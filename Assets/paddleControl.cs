@@ -8,10 +8,12 @@ public class paddleControl : MonoBehaviour
     public float speed=5;
     public float maxX=7.5f;
     float movementHorizontal;
+    private AudioSource boing;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        boing = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -22,5 +24,10 @@ public class paddleControl : MonoBehaviour
         {
             transform.position += Vector3.right * movementHorizontal * speed * Time.deltaTime;
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        boing.Play();
     }
 }
