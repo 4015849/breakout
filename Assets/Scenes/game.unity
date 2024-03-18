@@ -451,7 +451,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -4.5, z: 0}
-  m_LocalScale: {x: 2, y: 0.25, z: 1}
+  m_LocalScale: {x: 3.5, y: 0.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -495,7 +495,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1445a00e34520b48b6d453d3663bbe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 12
   maxX: 8.5
 --- !u!60 &600390053
 PolygonCollider2D:
@@ -1571,7 +1571,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd2904d5927e31418c72f4b6c067a54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: {x: 8, y: 7}
+  size: {x: 9, y: 5}
   offset: {x: 1.6, y: 0.68}
   brickPrefab: {fileID: 3923650263293469128, guid: 094fa46394ac29a4cae49727cc556092, type: 3}
   gradient:
@@ -1613,7 +1613,7 @@ Transform:
   m_GameObject: {fileID: 1248276970}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.25, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
