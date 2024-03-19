@@ -17,6 +17,8 @@ public class ball : MonoBehaviour
     int brickCount;
     public GameObject paddle;
     private AudioSource bonk;
+    public GameObject readyTxt;
+    public GameObject goTxt;
 
     // Start is called before the first frame update
     void Start()
@@ -43,6 +45,7 @@ public class ball : MonoBehaviour
                 lives--;
                 livesImage[lives].SetActive(false);
                 paddle.transform.position = new Vector3(0, (float)-4.5, 0);
+                goTxt.SetActive(false);
                 StartCoroutine(ballWait());
             }
 
@@ -80,7 +83,17 @@ public class ball : MonoBehaviour
 
     IEnumerator ballWait()
     {
+        readyTxt.SetActive(true);
         yield return new WaitForSeconds(1);
+        readyTxt.SetActive(false);
+        goTxt.SetActive(true);
         rb.velocity = Vector2.down * 10f;
+        StartCoroutine(textOff());
+    }
+
+    IEnumerator textOff()
+    {
+        yield return new WaitForSeconds(1);
+        goTxt.SetActive(false);
     }
 }
