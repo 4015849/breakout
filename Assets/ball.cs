@@ -62,7 +62,6 @@ public class ball : MonoBehaviour
         if (collision.gameObject.CompareTag("Brick"))
         {
             bonk.Play();
-            Destroy(collision.gameObject);
             score += 10;
             scoreTxt.text = score.ToString("00000");
             brickCount--;
@@ -70,6 +69,8 @@ public class ball : MonoBehaviour
             {
                 youWin.SetActive(true);
                 Time.timeScale = 0;
+                goTxt.SetActive(false);
+                readyTxt.SetActive(false);
             }
         }
     }
@@ -79,6 +80,8 @@ public class ball : MonoBehaviour
         gameOver.SetActive(true);
         Time.timeScale = 0;
         Destroy(gameObject);
+        goTxt.SetActive(false);
+        readyTxt.SetActive(false);
     }
 
     IEnumerator ballWait()
