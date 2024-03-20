@@ -24,7 +24,7 @@ public class ball : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        brickCount = FindObjectOfType<LevelGenerator>().transform.childCount;
+        brickCount = FindObjectOfType<LevelGenerator>().transform.childCount * 2;
         rb.velocity = Vector2.down * 10f;
         bonk = GetComponent<AudioSource>();
     }
@@ -62,7 +62,6 @@ public class ball : MonoBehaviour
         if (collision.gameObject.CompareTag("Brick"))
         {
             bonk.Play();
-            Destroy(collision.gameObject);
             score += 10;
             scoreTxt.text = score.ToString("00000");
             brickCount--;

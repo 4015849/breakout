@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class brick : MonoBehaviour
 {
+    public Color mycolor = new Color32(235, 64, 52, 255);
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.GetComponent<SpriteRenderer>().material.color == new Color32(214, 163, 184, 255))
+        if (GetComponent<SpriteRenderer>().material.color == mycolor)
         {
-            Destroy(collision.gameObject);
+            Destroy(gameObject);
         }
         else
         {
-            gameObject.GetComponent<SpriteRenderer>().material.color = new Color32(214, 163, 184, 255);
+            GetComponent<SpriteRenderer>().material.color = mycolor;
         }
+
     }
 }
