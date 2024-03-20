@@ -62,6 +62,7 @@ public class ball : MonoBehaviour
         if (collision.gameObject.CompareTag("Brick"))
         {
             bonk.Play();
+            Destroy(collision.gameObject);
             score += 10;
             scoreTxt.text = score.ToString("00000");
             brickCount--;
