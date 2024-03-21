@@ -19,6 +19,9 @@ public class ball : MonoBehaviour
     private AudioSource bonk;
     public GameObject readyTxt;
     public GameObject goTxt;
+    public float bounds = 0.02f;
+    public bool launched = false;
+    public GameObject pauseMenu;
 
     // Start is called before the first frame update
     void Start()
@@ -46,6 +49,7 @@ public class ball : MonoBehaviour
                 livesImage[lives].SetActive(false);
                 paddle.transform.position = new Vector3(0, (float)-4.5, 0);
                 goTxt.SetActive(false);
+                launched = false;
                 StartCoroutine(ballWait());
             }
 
@@ -54,6 +58,15 @@ public class ball : MonoBehaviour
         if(rb.velocity.magnitude > maxVelocity)
         {
             rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxVelocity);
+        }
+
+        if(launched == true)
+        {
+            if (rb.velocity.y > -bounds && rb.velocity.y < bounds)
+            {
+                Debug.Log("ball stuck, forcing velocity down");
+                rb.velocity += Vector2.down;
+            }
         }
     }
 
@@ -91,6 +104,7 @@ public class ball : MonoBehaviour
         readyTxt.SetActive(false);
         goTxt.SetActive(true);
         rb.velocity = Vector2.down * 10f;
+        launched = true;
         StartCoroutine(textOff());
     }
 
