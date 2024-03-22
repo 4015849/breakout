@@ -26,10 +26,9 @@ public class LevelGenerator : MonoBehaviour
         Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
-
-    public void quitGame()
+    public void QuitGame()
     {
-        Application.Quit();
         Debug.Log("quit");
+        Application.Quit();
     }
 }
