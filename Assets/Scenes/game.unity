@@ -201,6 +201,38 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 84520519}
   m_CullTransparentMesh: 1
+--- !u!1 &106048716
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 106048717}
+  m_Layer: 0
+  m_Name: 1 hit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &106048717
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 106048716}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.5378041, y: 1.2742131, z: 0.07434236}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1153509904}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &119621006
 GameObject:
   m_ObjectHideFlags: 0
@@ -616,7 +648,7 @@ GameObject:
   - component: {fileID: 258221093}
   - component: {fileID: 258221094}
   m_Layer: 0
-  m_Name: LevelGenerator (6)
+  m_Name: LevelGenerator3HitRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -738,7 +770,7 @@ GameObject:
   - component: {fileID: 320412641}
   - component: {fileID: 320412642}
   m_Layer: 0
-  m_Name: LevelGenerator (2)
+  m_Name: LevelGenerator2HitLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -911,7 +943,7 @@ GameObject:
   - component: {fileID: 565011000}
   - component: {fileID: 565011001}
   m_Layer: 0
-  m_Name: LevelGenerator (1)
+  m_Name: LevelGenerator2HitTop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1234,7 +1266,7 @@ GameObject:
   - component: {fileID: 770781283}
   - component: {fileID: 770781284}
   m_Layer: 0
-  m_Name: LevelGenerator (9)
+  m_Name: LevelGenerator4HitRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1281,7 +1313,7 @@ GameObject:
   - component: {fileID: 813757667}
   - component: {fileID: 813757668}
   m_Layer: 0
-  m_Name: LevelGenerator (4)
+  m_Name: LevelGenerator3HitTop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1485,7 +1517,7 @@ GameObject:
   - component: {fileID: 944142115}
   - component: {fileID: 944142116}
   m_Layer: 0
-  m_Name: LevelGenerator (5)
+  m_Name: LevelGenerator3HitLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2476,7 +2508,7 @@ GameObject:
   - component: {fileID: 1153509904}
   - component: {fileID: 1153509903}
   m_Layer: 0
-  m_Name: 1 hit
+  m_Name: LevelGenerator1Hit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2505,12 +2537,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1153509902}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.5378041, y: -0.27421308, z: -0.07434236}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 106048717}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1170097247
 GameObject:
@@ -2657,7 +2689,7 @@ GameObject:
   - component: {fileID: 1236326233}
   - component: {fileID: 1236326234}
   m_Layer: 0
-  m_Name: LevelGenerator (3)
+  m_Name: LevelGenerator2HitRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2704,7 +2736,7 @@ GameObject:
   - component: {fileID: 1248276972}
   - component: {fileID: 1248276971}
   m_Layer: 0
-  m_Name: LevelGenerator
+  m_Name: LevelGenerator (OG)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3272,7 +3304,7 @@ GameObject:
   - component: {fileID: 1404534251}
   - component: {fileID: 1404534252}
   m_Layer: 0
-  m_Name: LevelGenerator (8)
+  m_Name: LevelGenerator4HitLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4206,7 +4238,7 @@ GameObject:
   - component: {fileID: 1802405090}
   - component: {fileID: 1802405091}
   m_Layer: 0
-  m_Name: LevelGenerator (7)
+  m_Name: LevelGenerator4HitTop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4646,7 +4678,7 @@ SceneRoots:
   - {fileID: 1036760551}
   - {fileID: 875338737}
   - {fileID: 1248276972}
-  - {fileID: 1153509904}
+  - {fileID: 106048717}
   - {fileID: 2044960090}
   - {fileID: 1420878462}
   - {fileID: 564300166}

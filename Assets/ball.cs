@@ -27,7 +27,7 @@ public class ball : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        brickCount = FindObjectOfType<LevelGenerator>().transform.childCount * 2;
+        brickCount = 45 * 4;
         rb.velocity = Vector2.down * 10f;
         bonk = GetComponent<AudioSource>();
     }
