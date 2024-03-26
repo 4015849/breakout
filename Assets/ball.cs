@@ -19,15 +19,23 @@ public class ball : MonoBehaviour
     private AudioSource bonk;
     public GameObject readyTxt;
     public GameObject goTxt;
-    public float bounds = 0.02f;
+    public float bounds = 0.05f;
     public bool launched = false;
     public GameObject pauseMenu;
+    public int brick1Count;
+    public int brick2Count;
+    public int brick3Count;
+    public int brick4Count;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        brickCount = 45 * 4;
+        brick1Count = GameObject.FindGameObjectsWithTag("brick1").Length * 4;
+        brick2Count = GameObject.FindGameObjectsWithTag("brick2").Length * 3;
+        brick3Count = GameObject.FindGameObjectsWithTag("brick3").Length * 2;
+        brick4Count = GameObject.FindGameObjectsWithTag("brick4").Length;
+        brickCount = brick1Count + brick2Count + brick3Count + brick4Count;
         rb.velocity = Vector2.down * 10f;
         bonk = GetComponent<AudioSource>();
     }
@@ -72,7 +80,7 @@ public class ball : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Brick"))
+        if (collision.gameObject.CompareTag("brick1") || collision.gameObject.CompareTag ("brick2") || collision.gameObject.CompareTag ("brick3") || collision.gameObject.CompareTag ("brick4"))
         {
             bonk.Play();
             score += 10;

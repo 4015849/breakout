@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Brick
   - paddle
+  - brick1
+  - brick2
+  - brick3
+  - brick4
   layers:
   - Default
   - TransparentFX

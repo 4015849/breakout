@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 3861749762690984395}
   - component: {fileID: 5923449355305579727}
   - component: {fileID: 295343794624913316}
-  - component: {fileID: 4463451977020465553}
+  - component: {fileID: 298096866886077844}
   m_Layer: 0
   m_Name: brick 4
-  m_TagString: Brick
+  m_TagString: brick4
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -131,7 +131,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &4463451977020465553
+--- !u!114 &298096866886077844
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,17 +140,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 6421420407467756691}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75ed6aa27262cdf43ad70f8b1381fcb1, type: 3}
+  m_Script: {fileID: 11500000, guid: 65fc4bbedac75064bb865529ad0dab6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mycolor: {r: 0.92156863, g: 0.2509804, b: 0.20392157, a: 1}
-  mycolor2: {r: 0.67058825, g: 0.1882353, b: 0.15294118, a: 1}
-  mycolor3: {r: 0.4117647, g: 0.11372549, b: 0.09019608, a: 1}
-  basecolor1: {r: 1, g: 0.5254902, b: 0.7176471, a: 1}
-  basecolor2: {r: 0.59607846, g: 1, b: 0.5254902, a: 1}
-  basecolor3: {r: 0.5254902, g: 0.92156863, b: 1, a: 1}
-  basecolor4: {r: 1, g: 0.972549, b: 0.5254902, a: 1}
-  brick1: {fileID: 0}
-  brick2: {fileID: 0}
-  brick3: {fileID: 0}
-  brick4: {fileID: 0}
