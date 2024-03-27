@@ -11,19 +11,16 @@ public class brick2 : MonoBehaviour
     {
         if (GetComponent<SpriteRenderer>().color == mycolor3)
         {
-            Debug.Log("three hit");
             Destroy(gameObject);
         }
 
         if (GetComponent<SpriteRenderer>().color == mycolor2)
         {
-            Debug.Log("two hit");
             GetComponent<SpriteRenderer>().color = mycolor3;
         }
 
         if (GetComponent<SpriteRenderer>().color != mycolor2 && GetComponent<SpriteRenderer>().color != mycolor3)
         {
-            Debug.Log("one hit");
             GetComponent<SpriteRenderer>().color = mycolor2;
         }
     }

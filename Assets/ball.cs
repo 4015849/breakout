@@ -9,7 +9,7 @@ public class ball : MonoBehaviour
     public float maxVelocity = 15f;
     Rigidbody2D rb;
     int score = 0;
-    int lives = 5;
+    public int lives = 5;
     public TextMeshProUGUI scoreTxt;
     public GameObject[] livesImage;
     public GameObject gameOver;
@@ -26,24 +26,27 @@ public class ball : MonoBehaviour
     public int brick2Count;
     public int brick3Count;
     public int brick4Count;
+    public GameObject level1;
+    public GameObject level2;
+    public GameObject nextLevel1;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        rb.velocity = Vector2.down * 10f;
         brick1Count = GameObject.FindGameObjectsWithTag("brick1").Length * 4;
         brick2Count = GameObject.FindGameObjectsWithTag("brick2").Length * 3;
         brick3Count = GameObject.FindGameObjectsWithTag("brick3").Length * 2;
         brick4Count = GameObject.FindGameObjectsWithTag("brick4").Length;
         brickCount = brick1Count + brick2Count + brick3Count + brick4Count;
-        rb.velocity = Vector2.down * 10f;
         bonk = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(transform.position.y < minY)
+        if (transform.position.y < minY)
         {
             if (lives <= 0)
             {
@@ -88,6 +91,7 @@ public class ball : MonoBehaviour
             brickCount--;
             if (brickCount <= 0)
             {
+                Debug.Log("next level");
                 youWin.SetActive(true);
                 Time.timeScale = 0;
                 goTxt.SetActive(false);
@@ -120,5 +124,22 @@ public class ball : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         goTxt.SetActive(false);
+    }
+
+    void nextLevel()
+    {
+        nextLevel1.SetActive(true);
+        transform.position = Vector3.down;
+        rb.velocity = Vector2.zero;
+        paddle.transform.position = new Vector3(0, (float)-4.5, 0);
+        readyTxt.SetActive(false);
+        goTxt.SetActive(false);
+        launched = false;
+    }
+
+    public void nextLevelClick()
+    {
+        level2.SetActive(true);
+        StartCoroutine(ballWait()); 
     }
 }
