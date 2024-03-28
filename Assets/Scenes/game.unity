@@ -559,7 +559,7 @@ GameObject:
   m_Component:
   - component: {fileID: 138585172}
   m_Layer: 0
-  m_Name: level 1
+  m_Name: level 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1199,7 +1199,7 @@ GameObject:
   m_Component:
   - component: {fileID: 467101406}
   m_Layer: 0
-  m_Name: level 2
+  m_Name: level  1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2060,7 +2060,7 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -9.275274, y: -0.99480915}
+  - {x: -9.365979, y: -0.944417}
   - {x: -9.365579, y: 8.304565}
   - {x: -9.366327, y: 8.834612}
   - {x: -9.2535515, y: 8.951293}
@@ -2070,7 +2070,7 @@ EdgeCollider2D:
   - {x: 8.191512, y: 9.062373}
   - {x: 8.316107, y: 8.951765}
   - {x: 8.416441, y: 8.838456}
-  - {x: 8.329135, y: -0.9900847}
+  - {x: 8.40912, y: -0.9767538}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -2933,8 +2933,8 @@ MonoBehaviour:
   brick2Count: 0
   brick3Count: 0
   brick4Count: 0
-  level1: {fileID: 138585171}
-  level2: {fileID: 467101405}
+  level1: {fileID: 467101405}
+  level2: {fileID: 138585171}
   nextLevel1: {fileID: 52254194}
 --- !u!82 &1036760555
 AudioSource:
@@ -6007,5 +6007,5 @@ SceneRoots:
   - {fileID: 1288319543}
   - {fileID: 1848836195}
   - {fileID: 1682585383}
-  - {fileID: 138585172}
   - {fileID: 467101406}
+  - {fileID: 138585172}

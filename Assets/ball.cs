@@ -35,12 +35,9 @@ public class ball : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.down * 10f;
-        brick1Count = GameObject.FindGameObjectsWithTag("brick1").Length * 4;
-        brick2Count = GameObject.FindGameObjectsWithTag("brick2").Length * 3;
-        brick3Count = GameObject.FindGameObjectsWithTag("brick3").Length * 2;
-        brick4Count = GameObject.FindGameObjectsWithTag("brick4").Length;
-        brickCount = brick1Count + brick2Count + brick3Count + brick4Count;
+        calculateBrick();
         bonk = GetComponent<AudioSource>();
+        Debug.Log(brickCount);
     }
 
     // Update is called once per frame
@@ -75,8 +72,8 @@ public class ball : MonoBehaviour
         {
             if (rb.velocity.y > -bounds && rb.velocity.y < bounds)
             {
-                Debug.Log("ball stuck, forcing velocity down");
-                rb.velocity += Vector2.down;
+                Debug.Log("ball stuck, forcing velocity up");
+                rb.velocity += Vector2.up;
             }
         }
     }
@@ -91,7 +88,20 @@ public class ball : MonoBehaviour
             brickCount--;
             if (brickCount <= 0)
             {
+                Debug.Log(brickCount);
                 Debug.Log("next level");
+                transform.position = Vector3.down;
+                rb.velocity = Vector2.zero;
+                paddle.transform.position = new Vector3(0, (float)-4.5, 0);
+                goTxt.SetActive(false);
+                launched = false;
+                nextLevel1.SetActive(true);
+                Time.timeScale = 0;
+                goTxt.SetActive(false);
+                readyTxt.SetActive(false);
+            }
+            if (brickCount <= 0 && level2.activeSelf == true)
+            {
                 youWin.SetActive(true);
                 Time.timeScale = 0;
                 goTxt.SetActive(false);
@@ -126,20 +136,28 @@ public class ball : MonoBehaviour
         goTxt.SetActive(false);
     }
 
-    void nextLevel()
-    {
-        nextLevel1.SetActive(true);
-        transform.position = Vector3.down;
-        rb.velocity = Vector2.zero;
-        paddle.transform.position = new Vector3(0, (float)-4.5, 0);
-        readyTxt.SetActive(false);
-        goTxt.SetActive(false);
-        launched = false;
-    }
-
     public void nextLevelClick()
     {
+        if (lives < 10)
+        {
+            lives++;
+            livesImage[lives].SetActive(true);
+        }
         level2.SetActive(true);
-        StartCoroutine(ballWait()); 
+        level1.SetActive(false);
+        nextLevel1.SetActive(false);
+        calculateBrick();
+        Time.timeScale = 1;
+        StartCoroutine (ballWait());
+        Debug.Log(brickCount);
+    }
+
+    void calculateBrick()
+    {
+        brick1Count = GameObject.FindGameObjectsWithTag("brick1").Length * 4;
+        brick2Count = GameObject.FindGameObjectsWithTag("brick2").Length * 3;
+        brick3Count = GameObject.FindGameObjectsWithTag("brick3").Length * 2;
+        brick4Count = GameObject.FindGameObjectsWithTag("brick4").Length;
+        brickCount = brick1Count + brick2Count + brick3Count + brick4Count;
     }
 }
