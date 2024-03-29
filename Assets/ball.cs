@@ -54,7 +54,15 @@ public class ball : MonoBehaviour
                 transform.position = Vector3.down;
                 rb.velocity = Vector2.zero;
                 lives--;
-                livesImage[lives].SetActive(false);
+                if (livesImage[lives -1].activeSelf == true)
+                {
+                    livesImage[lives -1].SetActive(false);
+                }
+                else
+                {
+                    livesImage[lives].SetActive(false);
+                }
+                Debug.Log(lives);
                 paddle.transform.position = new Vector3(0, (float)-4.5, 0);
                 goTxt.SetActive(false);
                 launched = false;
@@ -72,8 +80,16 @@ public class ball : MonoBehaviour
         {
             if (rb.velocity.y > -bounds && rb.velocity.y < bounds)
             {
-                Debug.Log("ball stuck, forcing velocity up");
-                rb.velocity += Vector2.up;
+                if (gameObject.transform.position.y < 0)
+                {
+                    Debug.Log("ball stuck, forcing velocity up");
+                    rb.velocity += Vector2.up;
+                }
+                if (gameObject.transform.position.y >= 0)
+                {
+                    Debug.Log("ball stuck, forcing velocity down");
+                    rb.velocity += Vector2.down;
+                }
             }
         }
     }
@@ -138,10 +154,14 @@ public class ball : MonoBehaviour
 
     public void nextLevelClick()
     {
+        Debug.Log(lives);
         if (lives < 10)
         {
-            lives++;
+            lives = lives +2;
             livesImage[lives].SetActive(true);
+            livesImage[lives -1].SetActive(true);
+            Debug.Log("added life");
+            Debug.Log(lives);
         }
         level2.SetActive(true);
         level1.SetActive(false);
